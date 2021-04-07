@@ -18,7 +18,6 @@ namespace MaNorton
         ObjArray2D HelpField = new ObjArray2D();
         
         Global.Str_Array2D VisibleField;
-        Global.Str_Array1D ImageBorder;
 
         MyFunc.Geminus<int> Pages = MyFunc.Set(1, 1);
 
@@ -33,9 +32,6 @@ namespace MaNorton
 
             //Label.SomeString = FileName001;
             //Label.Koords = MyFunc.Set(( j001 - FileName001.Length ) / 2, 0);
-
-            ImageBorder.Array = new char[i001 + j001];
-            ImageBorder.Koords = MyFunc.Set(0, 0);
 
             List<string> Helper = new List<string>();
             Helper.Add("Up and Down Arrows, PageUp and PageDown, Home and End - Navigate");

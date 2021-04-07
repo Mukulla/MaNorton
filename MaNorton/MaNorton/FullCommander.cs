@@ -306,7 +306,7 @@ namespace MaNorton
             Buttons[0] = "F1 Help";
             Buttons[1] = "F2 Disk";
             Buttons[2] = "F3 Read";
-            Buttons[3] = "F4 Edit";
+            Buttons[3] = "F4";
             Buttons[4] = "F5 Copy";
             Buttons[5] = "F6 Make File";
             Buttons[6] = "F7 Make Dir";
@@ -343,7 +343,7 @@ namespace MaNorton
             HelpContent.Add("F1 - Open Helper");
             HelpContent.Add("F2 - Change Disk in current part of MaNorto");
             HelpContent.Add("F3 - Open some file in Reader");
-            HelpContent.Add("F4 - Edit File");
+            HelpContent.Add("F4");
             HelpContent.Add("F5 - Copy selected files or directories from Current Part to Another");
             HelpContent.Add("F6 - Make file");
             HelpContent.Add("F7 - Make Directory");
