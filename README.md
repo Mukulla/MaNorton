@@ -43,4 +43,4 @@
 
 # Смена Диска
 
-![ChangeDisk](https://user-images.githubusercontent.com/66882494/114167602-d58d7280-9937-11eb-95f6-d33b6880e17a.gif)
+![ChangeDisk](https://user-images.githubusercontent.com/66882494/114168382-de327880-9938-11eb-9530-70367173ebd8.gif)
