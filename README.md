@@ -59,4 +59,4 @@
 
 # Созание файла или папки
 
-![CopyDelete](https://user-images.githubusercontent.com/66882494/114193496-41330800-9957-11eb-8241-8d652f67e863.gif)
+![ReadOrTree](https://user-images.githubusercontent.com/66882494/114169143-d8896280-9939-11eb-8412-da74f1aa352e.gif)
