@@ -360,6 +360,7 @@ namespace MaNorton
             HelpContent.Add("Up and Down Arrows, PageUp and PageDown, Home and End - To navigate in current Directory");
             HelpContent.Add("BackSpace - To Up Level Directory");
             HelpContent.Add("SpaceBar - Select files or directories");
+            HelpContent.Add("Tab - Switch to Left or Right Part");
             HelpContent.Add("Escape - Close Helper Or Cancel Selected Files");
             HelpContent.Add("F1 - Open Helper");
             HelpContent.Add("F2 - Change Disk in current part of MaNorto");
