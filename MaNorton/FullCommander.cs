@@ -11,23 +11,36 @@ namespace MaNorton
 {
     class FullCommander
     {
+        //Маркер завершения программы для сохранения пути к папкам, которые были открыты на момент завершения
         public bool Ended = false;
 
+        //Стадия, которая соответствует выполняемой комнаде
         int CurrentState = 0;
 
+        //Две части командера с директориями
         NortoPart[] Partes = new NortoPart[2];
+        //Массив для запоминания активности частей
         bool[] MemActivity = new bool[2];
+        //Замкнутое значение для обработки событий активной части
         MyLib.Clausa1D NumberPart = new Clausa1D();
+        //Имена команд внизу командера
         string[] Buttons = new string[10];
+        //Общее поле с именами команд
         Global.Str_Array2D ButtonField;
 
+        //Помощник и его содержимое
         ObjArray2D Helper = new ObjArray2D();
+        //Класс для отображения содержимого выбранного файла или дерева каталогов
         MaShouwer MaShouwar = new MaShouwer();
+        //Класс для ввода имени создаваемого файла или папки
         ObjArray2D NameEnterer = new ObjArray2D();
+        //Макреры для гарантии однократного выполнения
         bool SetNewDirectory = false;
         bool SetNewFile = false;
 
+        //Окно подтвеждения выбора при копировании или удалении
         BaseWindows Confirmer = new BaseWindows();
+        //Окно с выбором диска
         BaseWindows DiskSelecter = new BaseWindows();
 
         public void Init()
@@ -60,8 +73,15 @@ namespace MaNorton
             DiskSelecter.SetLabel(" Select The Disk ", 1);
         }
 
+        //Обработка нажатий клавиш
         public void HandleKeys()
         {
+            //0 - стадия обработка активной части и команд
+            //1 - справка
+            //2 - смена диска
+            //3, 9 - чтение файла, дерево
+            //5, 8 - копирование, удаление
+            //6, 7 - создание файла, папки
             switch (CurrentState)
             {
                 case 0:
@@ -174,6 +194,7 @@ namespace MaNorton
                    //break;
             }
         }
+        //Основные команды
         void MainKeys()
         {
             if (MaKeys.Get(ConsoleKey.Tab))

@@ -8,6 +8,7 @@ using MyLib;
 
 namespace MaNorton
 {
+    //Видимое поле для выбора файла или папки с горизонтальными координатами
     class Marker
     {
         //Вертикальный индекс элемента в полном списке
@@ -32,6 +33,7 @@ namespace MaNorton
 
         public void Init(int Top001, int FieldKoordSecundus, int FieldHeigth, int ListLength)
         {
+            //Выбор пределов в зависимости от общего размера содержимого
             VertIndex.SetMinMax(Top001, ListLength - 1);
             VertIndex.Set(0);
             if (VertIndex.GetMax() <= FieldHeigth)

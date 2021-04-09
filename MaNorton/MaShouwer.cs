@@ -8,19 +8,24 @@ using MyLib;
 
 namespace MaNorton
 {
+    //Универсальный класс для отображения некоторого содержимого в виде вертикального списка
     class MaShouwer
     {
+        //Включить или выключить
         public bool Enabled = false;       
-
+        //Класс для прокрутки содержимого, если его больше чем вертикальный размер поля
         Scrollar Scroller001 = new Scrollar();
 
+        //Основное поле
         ObjArray2D MainField = new ObjArray2D();
+        //Поле клавишами для управления
         ObjArray2D HelpField = new ObjArray2D();
         
+        //Видимое поле - куда будет записываться кусок от всей загруженной информации
         Global.Str_Array2D VisibleField;
-
+        //Текущая страница и общее количество страниц
         MyFunc.Geminus<int> Pages = MyFunc.Set(1, 1);
-
+        //Список с данными, построчно
         List<string> Data = new List<string>();
 
         public void Init(MyFunc.Geminus<int> Koords001, int i001, int j001)

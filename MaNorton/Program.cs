@@ -23,21 +23,30 @@ namespace MaNorton
         }
         static void Main(string[] args)
         {
+            //Сделать окно максимального размера
             Maximize();
 
+            //Указание размеров глобального поля
             Global.Init(180, 54);
+            //Создание командера
             FullCommander MaCommander = new FullCommander();
             MaCommander.Init();
 
             while (!MaCommander.Ended)
             {
+                //Отображение командера и его различных элементов
                 MaCommander.Show();
+                //Отображение глобального поля, куда скопированы все элементы в текущем кадре
                 Global.Show();
 
+                //Получение кода клавиши
                 MaKeys.Set();
+                //Обработка кодов
                 MaCommander.HandleKeys();
 
+                //Очистка главного поля
                 Global.Clear();
+                //Очистка экрана консоли
                 Console.Clear();
             }
         }        
