@@ -58,3 +58,5 @@
 ![CopyDelete](https://user-images.githubusercontent.com/66882494/114193496-41330800-9957-11eb-8241-8d652f67e863.gif)
 
 # Созание файла или папки
+
+![CopyDelete](https://user-images.githubusercontent.com/66882494/114193496-41330800-9957-11eb-8241-8d652f67e863.gif)
