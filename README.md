@@ -42,6 +42,10 @@
 - F9  Отобразить дерево в папке
 - F10 Выход
 
+# Справка
+
+![Helper](https://user-images.githubusercontent.com/66882494/114195195-ec908c80-9958-11eb-9f90-57f1ec6f3f13.gif)
+
 # Смена Диска
 
 ![ChangeDisk](https://user-images.githubusercontent.com/66882494/114168382-de327880-9938-11eb-9530-70367173ebd8.gif)
