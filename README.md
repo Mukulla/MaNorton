@@ -26,7 +26,7 @@
 - Выделение/снятие выделения файлов и/или папок для группового копирования или удаления - Space
 - Сброс выделения - Escape
 
-![Move](https://user-images.githubusercontent.com/66882494/114167043-22247e00-9937-11eb-8517-9c7e4e4d3b9f.gif)
+![Move](https://user-images.githubusercontent.com/66882494/114167605-d6260900-9937-11eb-97bc-59e147758625.gif)
 
 ## Вызов команд
 
