@@ -30,7 +30,6 @@ namespace MaNorton
             Global.Init(180, 54);
             //Создание командера
             FullCommander MaCommander = new FullCommander();
-            MaCommander.Init();
 
             while (!MaCommander.Ended)
             {

@@ -18,6 +18,8 @@ namespace MaNorton
         string TopDownRight = "├──";
         string TopDown = "│  ";
         string DownRight = "└──";
+
+        int Limitar = 0;
         public void MakeTree(string SomePath001)
         {
             try
@@ -36,13 +38,25 @@ namespace MaNorton
                 Global.Attention.AddContent(MyFunc.Set(2, 1), "Can not make Tree");
                 Global.AddToLogFile(SomePath001, "Trying to make Tree", "Can not make Tree");
                 return;
-            }
-            
+            }            
+
             ShowDirRec(SomePath001, "");
         }
 
         void ShowDirRec(string SomePath, string LastShifter)
         {
+            
+            if(Limitar > 15_000)
+            {
+                Global.Attention.AddContent(MyFunc.Set(2, 1), "Reached Limit Folders");
+                Global.AddToLogFile(SomePath, "Trying to make Tree", "Reached Limit Folders");
+                return;
+            }
+            else
+            {
+                ++Limitar;
+            }
+
             string Shifter;
             DirectoryInfo CurrentDirectory = new DirectoryInfo(SomePath);
             DirectoryInfo[] CurrentArrayDir = CurrentDirectory.GetDirectories();

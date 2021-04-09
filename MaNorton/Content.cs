@@ -83,6 +83,7 @@ namespace MaNorton
             MyFunc.Geminus<int> SizePlacer = MyFunc.Set(0, 0);
             MyFunc.Geminus<int> AlignPlacer = MyFunc.Set(0, 0);
             string NameSize;
+            string Attribute001 = "Hidden";
 
             for (int i = Min001; i < Max001; ++i)
             { 
@@ -94,8 +95,12 @@ namespace MaNorton
                 {
                     MyFunc.CopyStringToArray(ref AlignPlacer, NewEntaries001[i].Type.ToString(), PartesOfContent[1].Array, true);
                 }
-                AlignPlacer.Primis = MyFunc.AlignString(NewEntaries001[i].Attribute.Length, PartesOfContent[2].Array.GetLength(1), 1);
-                MyFunc.CopyStringToArray(ref AlignPlacer, NewEntaries001[i].Attribute, PartesOfContent[2].Array, true);
+                if(NewEntaries001[i].Attribute == true)
+                {
+                    AlignPlacer.Primis = MyFunc.AlignString(Attribute001.Length, PartesOfContent[2].Array.GetLength(1), 1);                
+                    MyFunc.CopyStringToArray(ref AlignPlacer, Attribute001, PartesOfContent[2].Array, true);
+                }
+               
                 if(NewEntaries001[i].Size > 0)
                 {
                     SizePlacer = TempoPlacer;

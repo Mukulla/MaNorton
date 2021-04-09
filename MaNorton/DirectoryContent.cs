@@ -32,12 +32,13 @@ namespace MaNorton
             //Если количество слешей больше одного,
             //добавляем многоточие в начало
             string[] Tempo = SomePath001.Split(Slasher);
-            if (Tempo.Length > 1 && Tempo[Tempo.Length - 1] != "")
+            if (Tempo.Length > 1 && Tempo[Tempo.Length - 1] != string.Empty)
+            //if ( SomePath001.Count(x => x == '\\') < 2 )
             {
                 //Отмечаем, что это переход на уровень выше
                 TempoPoint.Name = LevelUpper;
                 TempoPoint.Type = Global.Types.LevelUp;
-                TempoPoint.Attribute = "";
+                TempoPoint.Attribute = false;
                 TempoPoint.Size = 0;
 
                 CurrentContent.Add(TempoPoint);
@@ -48,14 +49,13 @@ namespace MaNorton
                 //Отмечаем, что это директория
                 TempoPoint.Name = ArrayDir[i].Name;
                 TempoPoint.Type = Global.Types.Directory;
-                TempoPoint.Attribute = "";
+                TempoPoint.Attribute = false;
                 TempoPoint.Size = 0;
                 if(ArrayDir[i].Attributes.HasFlag(FileAttributes.Hidden))
                 //if(ArrayDir[i].Attributes == )
                 {
-                    TempoPoint.Attribute = "Hidden";
+                    TempoPoint.Attribute = true;
                 }
-
                 CurrentContent.Add(TempoPoint);
             }
             //Записываем имена файлов в поле отображения
@@ -64,11 +64,11 @@ namespace MaNorton
                 //Отмечаем, что это файл
                 TempoPoint.Name = ArrayFiles[i].Name;
                 TempoPoint.Type = Global.Types.File;
-                TempoPoint.Attribute = "";
+                TempoPoint.Attribute = false;
                 TempoPoint.Size = ArrayFiles[i].Length;
                 if (ArrayFiles[i].Attributes.HasFlag(FileAttributes.Hidden))
                 {
-                    TempoPoint.Attribute = "Hidden";
+                    TempoPoint.Attribute = true;
                 }
 
                 CurrentContent.Add(TempoPoint);
@@ -80,7 +80,7 @@ namespace MaNorton
             MyFunc.CheckLimitataAream(ref Index, 0, CurrentContent.Count - 1);
             return CurrentContent[Index].Name;
         }
-        public string GetAttribute(int Index)
+        public bool GetAttribute(int Index)
         {
             MyFunc.CheckLimitataAream(ref Index, 0, CurrentContent.Count - 1);
             return CurrentContent[Index].Attribute;
@@ -93,7 +93,6 @@ namespace MaNorton
         public int GetLength()
         {
             return CurrentContent.Count;
-        }
-        
+        }        
     }
 }

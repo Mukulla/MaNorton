@@ -13,13 +13,13 @@ namespace MaNorton
     class PathWalker
     {
         //Текущий путь
-        string CurrentPath = "";
+        string CurrentPath = string.Empty;
         //Путь для чтения или записи записанного последних открытых папок
-        string FilePath = "";
+        string FilePath = string.Empty;
         //Текущий номер активной части коммандера
         int CurrentPart = 0;
         //Сообщение об ошибке, если она возникла
-        string Attention = "";
+        string Attention = string.Empty;
 
         public void Init(string FilePath001, int NumberOfPart)
         {

@@ -11,59 +11,39 @@ namespace MaNorton
 {
     class FileReader
     {
-        public List<string> Data = new List<string>();
-        public void LoadFile(string Path001)
+        static public bool LoadFile(string Path001, out string[] Data001)
         {
-            string[] FileContent = null;
+            Data001 = null;
 
             try
             {
-                FileContent = File.ReadAllLines(@Path001);
+                Data001 = File.ReadAllLines(@Path001);
+                return Data001.Length > 0;
             }
             catch (NullReferenceException)
             {
                 Global.Attention.AddContent(MyFunc.Set(2, 1), "Nothing read");
                 Global.AddToLogFile(Path001, "Trying read file", "Nothing read");
-                return;
+                return false;
             }
             catch (FileNotFoundException)
             {
                 Global.Attention.AddContent(MyFunc.Set(2, 1), "File not found");
                 Global.AddToLogFile(Path001, "Trying read file", "File not found");
-                return;
+                return false;
             }
             catch (UnauthorizedAccessException)
             {
                 Global.Attention.AddContent(MyFunc.Set(2, 1), "Access Denied");
                 Global.AddToLogFile(Path001, "Trying read file", "Access Denied");
-                return;
+                return false;
             }
             catch(Exception)
             {
                 Global.Attention.AddContent(MyFunc.Set(2, 1), "Can not Read File");
                 Global.AddToLogFile(Path001, "Trying read file", "Can not Read File");
-                return;
-            }
-            
-            Data = new List<string>();
-            foreach (var Item in FileContent)
-            {
-                try
-                {
-                    Data.Add(Item);
-                    //FileContent = File.ReadAllLines(Path001);
-                }
-                catch (NullReferenceException)
-                {
-                    Global.Attention.AddContent(MyFunc.Set(2, 1), "Nothing read");
-                    Global.AddToLogFile(Path001, "Trying read file", "Nothing read");
-                }
-                
-            }
-        }
-        public void Clear()
-        {            
-            Data.Clear();
+                return false;
+            }            
         }
     }
 }

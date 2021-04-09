@@ -18,7 +18,7 @@ namespace MaNorton
 
         static bool TextReader = false;
         static MyFunc.Geminus<int> TextKoords = MyFunc.Set(0, 0);
-        static string ReadedText = "";
+        static string ReadedText = string.Empty;
 
         static public void Set()
         {

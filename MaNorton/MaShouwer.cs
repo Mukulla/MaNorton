@@ -56,7 +56,7 @@ namespace MaNorton
             //Label.SomeString = FileName001;
             //Label.Koords = MyFunc.Set((VisibleField.Array.GetLength(1) - FileName001.Length) / 2, 0);
         }
-        public void SetData(ref List<string> SomeData001)
+        public void SetData(List<string> SomeData001)
         {
             if (SomeData001 == null)
             {

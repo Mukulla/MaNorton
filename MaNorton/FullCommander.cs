@@ -43,7 +43,7 @@ namespace MaNorton
         //Окно с выбором диска
         BaseWindows DiskSelecter = new BaseWindows();
 
-        public void Init()
+        public FullCommander()
         {
             Partes[0] = new NortoPart();
             Partes[1] = new NortoPart();
@@ -384,14 +384,12 @@ namespace MaNorton
             if (Partes[NumberPart.Get()].GetType() == Global.Types.File)
             {
                 //MaShouwar.Init(MyFunc.Set(0, 0), Global.Sizes.Secundus, Global.Sizes.Primis);
-                //Грузим данные
-                FileReader NewReader = new FileReader();
-                NewReader.LoadFile(Partes[NumberPart.Get()].GetFullPath());
-                if (NewReader.Data != null)
+                //Грузим данные                
+                if(FileReader.LoadFile(Partes[NumberPart.Get()].GetFullPath(), out string[] NewData))
                 {
                     //Записываем
                     MaShouwar.SetLabel(Partes[NumberPart.Get()].GetName());
-                    MaShouwar.SetData(ref NewReader.Data);
+                    MaShouwar.SetData(NewData.ToList());
                     MaShouwar.Enabled = true;
 
                     CurrentState = 3;
@@ -401,7 +399,7 @@ namespace MaNorton
         }
         void MakeTreeViewer()
         {
-            if(Partes[NumberPart.Get()].GetAttribute() == "Hidden")
+            if(Partes[NumberPart.Get()].GetAttribute())
             {
                 return;
             }
@@ -411,7 +409,7 @@ namespace MaNorton
                 TreeMaker NewTree001 = new TreeMaker();
                 NewTree001.MakeTree(Partes[NumberPart.Get()].GetFullPath());
                 MaShouwar.SetLabel(Partes[NumberPart.Get()].GetFullPath());
-                MaShouwar.SetData(ref NewTree001.CurrentTree);
+                MaShouwar.SetData(NewTree001.CurrentTree);
                 MaShouwar.Enabled = true;
 
                 CurrentState = 9;
@@ -423,7 +421,7 @@ namespace MaNorton
                 TreeMaker NewTree001 = new TreeMaker();
                 NewTree001.MakeTree(Partes[NumberPart.Get()].GetCurrentPath());
                 MaShouwar.SetLabel(Partes[NumberPart.Get()].GetCurrentPath());
-                MaShouwar.SetData(ref NewTree001.CurrentTree);
+                MaShouwar.SetData(NewTree001.CurrentTree);
                 MaShouwar.Enabled = true;
 
                 CurrentState = 9;

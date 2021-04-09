@@ -43,18 +43,13 @@ namespace MaNorton
             LevelUp,
             Directory,
             File
-        }
-        public struct DPoint
-        {
-            public string Name;
-            public Types Type;
-        }
+        }        
 
         public struct Str_Properties
         {
             public string Name;
             public Types Type;
-            public string Attribute;
+            public bool Attribute;
             public long Size;
         }
 
@@ -63,11 +58,7 @@ namespace MaNorton
             public string SomeString;
             public MyFunc.Geminus<int> Koords;
         }
-        public struct Str_Array1D
-        {
-            public char[] Array;
-            public MyFunc.Geminus<int> Koords;
-        }
+        
         public struct Str_Array2D
         {
             public char[,] Array;
@@ -95,7 +86,7 @@ namespace MaNorton
         //Запись в лог файл
         static public void AddToLogFile(string TryingPath001, string NameError001, string Error001)
         {
-            File.AppendAllText(Global.LogeFile, $"{DateTime.Now.ToString("HH:mm:ss")} {DateTime.Now.ToString("dd MMMM yyyy")} {NameError001}  {TryingPath001}  {Error001} {Environment.NewLine}");
+            File.AppendAllText(Global.LogeFile, $"{DateTime.Now.ToString("HH:mm:ss dd MMMM yyyy")} {NameError001}  {TryingPath001}  {Error001} {Environment.NewLine}");
         }
 
         //Запсиь текущих координат маркера
@@ -114,7 +105,7 @@ namespace MaNorton
                 if (TextIndexes[i] == VertIndex001)
                 {
                     TextIndexes.RemoveAt(i);
-                    Sort();
+                    TextSortedIndexes = TextIndexes.OrderBy(x => x).ToList();
                     return;
                 }
             }
@@ -123,7 +114,7 @@ namespace MaNorton
             TextVertKoord = VertKoordField;
             TextHorizontalKoords = TextHorizontalKoords001;
 
-            Sort();
+            TextSortedIndexes = TextIndexes.OrderBy(x => x).ToList();
         }
         //Перезапись текущей видимой области
         static public void AddTextVertBorders(MyFunc.Geminus<int> VertBorders001)
@@ -157,7 +148,6 @@ namespace MaNorton
             MyFunc.FillArray(Field, ' ');
             Global.FillBroders(Field);
             MyFunc.CopyStringToArray(Label.Koords, Label.SomeString, Field, true);
-
         }
 
         //Отображение
@@ -292,20 +282,7 @@ namespace MaNorton
                 }
             }
             return false;
-        }
-
-        static void Sort()
-        {
-            TextSortedIndexes.Clear();
-            var SortedID = from Value in TextIndexes
-                           orderby Value
-                           select Value;
-            
-            foreach (var Item in SortedID)
-            {
-                TextSortedIndexes.Add(Item);
-            }
-        }
+        }      
 
         static public void FillBroders(char[,] SomeField)
         {

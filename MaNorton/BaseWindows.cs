@@ -29,7 +29,7 @@ namespace MaNorton
         //Найденные диски
         DriveInfo[] Drives;
         //Путь с новым диском
-        string NewPath = "";
+        string NewPath = string.Empty;
 
         public void Init(int Number001)
         {
@@ -56,7 +56,7 @@ namespace MaNorton
             MyFunc.CopyStringToArray(MyFunc.Set(MyFunc.AlignString(Names[0].Length, Sizes.Primis / 2, 1), 2), Names[0], Field.Array, true);
             MyFunc.CopyStringToArray(MyFunc.Set(MyFunc.AlignString(Names[1].Length, Sizes.Primis / 2, 1) + 18, 2), Names[1], Field.Array, true);
 
-            Label.SomeString = "";
+            Label.SomeString = string.Empty;
             Label.Koords = MyFunc.Set(2, 0);
 
             Global.FillBroders(Field.Array);
@@ -84,20 +84,20 @@ namespace MaNorton
 
             MyFunc.FillArray(Field.Array, ' ');
 
-            Label.SomeString = "";
+            Label.SomeString = string.Empty;
             Label.Koords = MyFunc.Set(2, 0);
 
             Global.FillBroders(Field.Array);
 
             HorizKoords = new MyFunc.Quadrupla<int>[Drives.Length]; 
-            string TempoName = "";
+            string TempoName = string.Empty;
             for (int i = 0; i < Drives.Length; ++i)
             {
                 HorizKoords[i] = MyFunc.Set(0, i * Step + Field.Koords.Primis + 2, ( i + 1 ) * Step + Field.Koords.Primis, Global.Sizes.Primis);
 
                 TempoName += Drives[i].Name[0];
                 MyFunc.CopyStringToArray(MyFunc.Set( i * Step + 4,  2), TempoName, Field.Array, true);
-                TempoName = "";
+                TempoName = string.Empty;
             }
 
             CurrentIndex = Field.Koords.Secundus + 2;

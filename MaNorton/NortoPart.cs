@@ -28,14 +28,15 @@ namespace MaNorton
         //Поле для помещения туда списка
         Content TableContent = new Content();
         //Размеры
-        MyFunc.Geminus<int> ContentSizes;
-        //Имя файла с записанной последней посещённой директорией
-        string ConfigFile = "Config.nor";
+        MyFunc.Geminus<int> ContentSizes;        
         //Список полных имён выделенных файлов или папок
         List<string> ListFullNames = new List<string>();
         List<string> ListNames = new List<string>();
         //Список типов выделенных файлов или папок
         List<Global.Types> ListTypes = new List<Global.Types>();
+        
+        //Имя файла с записанной последней посещённой директорией
+        const string ConfigFile = "Config.nor";
 
         public void Init(MyFunc.Geminus<int> Koords001, int NumberPart001)
         {
@@ -73,7 +74,7 @@ namespace MaNorton
             {
                 return;
             }
-            Global.Attention.Show("");
+            Global.Attention.Show(string.Empty);
             
             //Отмена выделений
             if (MaKeys.Get(ConsoleKey.Escape))
@@ -181,7 +182,7 @@ namespace MaNorton
         {
             return CurrentContent.GetType(MainMarker.GetIndex());
         }
-        public string GetAttribute()
+        public bool GetAttribute()
         {
             return CurrentContent.GetAttribute(MainMarker.GetIndex());
         }
