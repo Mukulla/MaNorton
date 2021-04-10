@@ -44,7 +44,7 @@ namespace MaNorton
             MaWalker.Init(ConfigFile, NumberPart001);
             //Указываем размеры относительно размеров глобального поля
             ContentSizes = MyFunc.Set(Global.Sizes.Primis / 2 - 3, (Global.Sizes.Secundus * 3) / 4 + 2);            
-            //Общая рамка
+            //Создаём
             TableContent.Init(MyFunc.Set(Koords001.Primis, Koords001.Secundus + 5), ContentSizes);
             //Указываем горизонтальные границы для маркера, они будут всё время одинаковыми
             MainMarker.SetHorizontalLimites(0, Koords001.Primis + 1, Koords001.Primis + TableContent.GetHorLengthMarker(), Global.Sizes.Primis);

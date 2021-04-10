@@ -18,7 +18,7 @@ namespace MaNorton
             try
             {
                 Data001 = File.ReadAllLines(@Path001);
-                return Data001.Length > 0;
+                return true;
             }
             catch (NullReferenceException)
             {

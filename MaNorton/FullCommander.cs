@@ -399,29 +399,20 @@ namespace MaNorton
         }
         void MakeTreeViewer()
         {
+            //Если аттрибут папки - скрытый, пропускаем
             if(Partes[NumberPart.Get()].GetAttribute())
             {
                 return;
             }
-            //Если маркер находится на папке
-            if (Partes[NumberPart.Get()].GetType() == Global.Types.Directory)
-            {
-                TreeMaker NewTree001 = new TreeMaker();
-                NewTree001.MakeTree(Partes[NumberPart.Get()].GetFullPath());
-                MaShouwar.SetLabel(Partes[NumberPart.Get()].GetFullPath());
-                MaShouwar.SetData(NewTree001.CurrentTree);
-                MaShouwar.Enabled = true;
 
-                CurrentState = 9;
-                ChangeActivity(0);
-                return;
-            }
-            if (Partes[NumberPart.Get()].GetType() == Global.Types.LevelUp)
+            Global.Types CurrentType = Partes[NumberPart.Get()].GetType();
+            //Если маркер находится на папке
+            if (CurrentType == Global.Types.Directory || CurrentType == Global.Types.LevelUp)
             {
-                TreeMaker NewTree001 = new TreeMaker();
-                NewTree001.MakeTree(Partes[NumberPart.Get()].GetCurrentPath());
-                MaShouwar.SetLabel(Partes[NumberPart.Get()].GetCurrentPath());
-                MaShouwar.SetData(NewTree001.CurrentTree);
+                string CurrentPath = Partes[NumberPart.Get()].GetFullPath();
+                TreeMaker.MakeTree(CurrentPath);
+                MaShouwar.SetLabel(CurrentPath);
+                MaShouwar.SetData(TreeMaker.CurrentTree);
                 MaShouwar.Enabled = true;
 
                 CurrentState = 9;

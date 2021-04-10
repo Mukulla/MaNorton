@@ -13,14 +13,12 @@ namespace MaNorton
     class TreeMaker
     {
         //Список с деревом
-        public List<string> CurrentTree = new List<string>();
-        string Spacer = "   ";
-        string TopDownRight = "├──";
-        string TopDown = "│  ";
-        string DownRight = "└──";
-
-        int Limitar = 0;
-        public void MakeTree(string SomePath001)
+        static public List<string> CurrentTree = new List<string>();
+        static string Spacer = "   ";
+        static string TopDownRight = "├──";
+        static string TopDown = "│  ";
+        static string DownRight = "└──";
+        static public void MakeTree(string SomePath001)
         {
             try
             {
@@ -38,25 +36,35 @@ namespace MaNorton
                 Global.Attention.AddContent(MyFunc.Set(2, 1), "Can not make Tree");
                 Global.AddToLogFile(SomePath001, "Trying to make Tree", "Can not make Tree");
                 return;
-            }            
+            }
 
-            ShowDirRec(SomePath001, "");
-        }
-
-        void ShowDirRec(string SomePath, string LastShifter)
-        {
-            
-            if(Limitar > 15_000)
+            try
             {
-                Global.Attention.AddContent(MyFunc.Set(2, 1), "Reached Limit Folders");
-                Global.AddToLogFile(SomePath, "Trying to make Tree", "Reached Limit Folders");
+                CurrentTree.Clear();
+                ShowDirRec(SomePath001, "");
+            }
+            catch (UnauthorizedAccessException)
+            {
+                Global.Attention.AddContent(MyFunc.Set(2, 1), "Access Denied");
+                Global.AddToLogFile(SomePath001, "Trying to make Tree", "Access Denied");
                 return;
             }
-            else
+            catch (StackOverflowException)
             {
-                ++Limitar;
+                Global.Attention.AddContent(MyFunc.Set(2, 1), "Reached Limit Folders");
+                Global.AddToLogFile(SomePath001, "Trying to make Tree", "Reached Limit Folders");
+                return;
             }
+            catch(Exception)
+            {
+                Global.Attention.AddContent(MyFunc.Set(2, 1), "Can not make Tree");
+                Global.AddToLogFile(SomePath001, "Trying to make Tree", "Can not make Tree");
+                return;
+            }            
+        }
 
+        static void ShowDirRec(string SomePath, string LastShifter)
+        {
             string Shifter;
             DirectoryInfo CurrentDirectory = new DirectoryInfo(SomePath);
             DirectoryInfo[] CurrentArrayDir = CurrentDirectory.GetDirectories();
