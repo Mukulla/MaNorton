@@ -153,6 +153,7 @@ namespace MaNorton
         //Отображение
         static public void Show()
         {
+            Console.WriteLine();
             //Attention.Show();
 
             int Index001 = 0;
@@ -167,7 +168,7 @@ namespace MaNorton
                 }
                 Console.WriteLine(@MyFunc.GetString(i, Global.Field));
             }
-
+            
             //Global.FillBroders(Field, '#');
             Attention.Clear();
 

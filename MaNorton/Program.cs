@@ -23,8 +23,11 @@ namespace MaNorton
         }
         static void Main(string[] args)
         {
+            
+            Console.SetBufferSize(180, 54);
+            Console.SetWindowSize(181, 55);
             //Сделать окно максимального размера
-            Maximize();
+            //Maximize();
 
             //Указание размеров глобального поля
             Global.Init(180, 54);
@@ -46,7 +49,7 @@ namespace MaNorton
                 //Очистка главного поля
                 Global.Clear();
                 //Очистка экрана консоли
-                Console.Clear();
+                //Console.Clear();
             }
         }        
     }

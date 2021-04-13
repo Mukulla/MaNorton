@@ -383,13 +383,12 @@ namespace MaNorton
             //Если маркер находится на файле
             if (Partes[NumberPart.Get()].GetType() == Global.Types.File)
             {
-                //MaShouwar.Init(MyFunc.Set(0, 0), Global.Sizes.Secundus, Global.Sizes.Primis);
                 //Грузим данные                
-                if(FileReader.LoadFile(Partes[NumberPart.Get()].GetFullPath(), out string[] NewData))
+                if(FileReader.LoadFile(Partes[NumberPart.Get()].GetFullPath()))
                 {
                     //Записываем
                     MaShouwar.SetLabel(Partes[NumberPart.Get()].GetName());
-                    MaShouwar.SetData(NewData.ToList());
+                    MaShouwar.SetData(FileReader.Data.ToList());
                     MaShouwar.Enabled = true;
 
                     CurrentState = 3;

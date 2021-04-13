@@ -32,8 +32,7 @@ namespace MaNorton
             //Если количество слешей больше одного,
             //добавляем многоточие в начало
             string[] Tempo = SomePath001.Split(Slasher);
-            if (Tempo.Length > 1 && Tempo[Tempo.Length - 1] != string.Empty)
-            //if ( SomePath001.Count(x => x == '\\') < 2 )
+            if (Tempo.Length > 1 && Tempo[Tempo.Length - 1] != string.Empty)            
             {
                 //Отмечаем, что это переход на уровень выше
                 TempoPoint.Name = LevelUpper;

@@ -11,13 +11,14 @@ namespace MaNorton
 {
     class FileReader
     {
-        static public bool LoadFile(string Path001, out string[] Data001)
+        static public string[] Data;
+        static public bool LoadFile(string Path001)
         {
-            Data001 = null;
+            Data = null;
 
             try
             {
-                Data001 = File.ReadAllLines(@Path001);
+                Data = File.ReadAllLines(@Path001);
                 return true;
             }
             catch (NullReferenceException)
